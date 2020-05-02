@@ -11,10 +11,12 @@ public class Player : MonoBehaviour {
 
 
     Rigidbody2D playerRigidBody;
+    Collider2D playerCollider;
     Animator playerAnimator;
 
     void Start() {
         playerRigidBody = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponent<Animator>();
     }
 
@@ -33,14 +35,18 @@ public class Player : MonoBehaviour {
     }
 
     private void Jump() {
-        if (CrossPlatformInputManager.GetButtonDown("Jump")) {
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && PlayerIsGrounded()) {
             playerRigidBody.velocity += new Vector2(0, jumpVelocity);
         }
     }
+
     private void FlipPlayerHorizontally() {
         if (PlayerIsMoving()) {
             transform.localScale = new Vector2(Mathf.Sign(playerRigidBody.velocity.x), 1);
         }
+    }
+    private bool PlayerIsGrounded() {
+        return playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
 
     private bool PlayerIsMoving() {
