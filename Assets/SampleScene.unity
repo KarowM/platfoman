@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerVelocity: 4
+  jumpVelocity: 16
 --- !u!1 &346904868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,6 +2992,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 622218567286638008, guid: fa914caba3406944fb38466fdf179fca,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8176631176010202384, guid: fa914caba3406944fb38466fdf179fca,
         type: 3}
       propertyPath: m_LocalPosition.x

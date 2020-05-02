@@ -6,18 +6,23 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour {
 
-    [SerializeField] int playerVelocity = 4;
+    [SerializeField] private int playerVelocity = 4;
+    [SerializeField] private int jumpVelocity = 16;
+
 
     Rigidbody2D playerRigidBody;
     Animator playerAnimator;
+
     void Start() {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
     }
 
     void Update() {
+        print(playerRigidBody.velocity.y);
         Run();
         FlipPlayerHorizontally();
+        Jump();
     }
 
     private void Run() {
@@ -25,6 +30,12 @@ public class Player : MonoBehaviour {
 
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         playerRigidBody.velocity = new Vector2(controlThrow * playerVelocity, playerRigidBody.velocity.y);
+    }
+
+    private void Jump() {
+        if (CrossPlatformInputManager.GetButtonDown("Jump")) {
+            playerRigidBody.velocity += new Vector2(0, jumpVelocity);
+        }
     }
     private void FlipPlayerHorizontally() {
         if (PlayerIsMoving()) {
