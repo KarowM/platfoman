@@ -24,8 +24,8 @@ public class Player : MonoBehaviour {
     }
 
     private void FlipPlayerHorizontally() {
-        if (Mathf.Abs(playerVelocity) > Mathf.Epsilon) {
-            Transform transform = GetComponent<Transform>();
+        bool playerIsMoving = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;
+        if (playerIsMoving) {
             transform.localScale = new Vector2(Mathf.Sign(playerRigidBody.velocity.x), 1);
         }
     }
