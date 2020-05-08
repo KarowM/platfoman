@@ -121,27 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &209206012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8176631176010202387, guid: fa914caba3406944fb38466fdf179fca,
-    type: 3}
-  m_PrefabInstance: {fileID: 8176631176203651055}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &209206013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209206012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50f27e2436e880c4c8f2c8000a23145e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerVelocity: 4
-  jumpVelocity: 16
-  climbVelocity: 5
 --- !u!95 &209206017 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8176631176010202385, guid: fa914caba3406944fb38466fdf179fca,
@@ -13585,11 +13564,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 622218567286638008, guid: fa914caba3406944fb38466fdf179fca,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8176631176010202384, guid: fa914caba3406944fb38466fdf179fca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13645,20 +13619,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8176631176010202384, guid: fa914caba3406944fb38466fdf179fca,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8176631176010202387, guid: fa914caba3406944fb38466fdf179fca,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176631176010202387, guid: fa914caba3406944fb38466fdf179fca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa914caba3406944fb38466fdf179fca, type: 3}

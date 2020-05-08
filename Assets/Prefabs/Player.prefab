@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 8176631176010202386}
   - component: {fileID: 622218567286638008}
   - component: {fileID: -5753870268626667399}
-  m_Layer: 0
+  - component: {fileID: 209206013}
+  - component: {fileID: 240763263101684802}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +92,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -85081775
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -8764484971933765363, guid: c85caaa1cc03d384796a4b65d17c235d,
     type: 3}
@@ -123,10 +125,41 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &-5753870268626667399
 CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176631176010202387}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 69b8386480a07104587ab6b6d4e597b2, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03178096, y: -0.09342873}
+  m_Size: {x: 0.5507302, y: 0.8085158}
+  m_Direction: 0
+--- !u!114 &209206013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176631176010202387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f27e2436e880c4c8f2c8000a23145e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerVelocity: 4
+  jumpVelocity: 16
+  climbVelocity: 5
+--- !u!61 &240763263101684802
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -138,6 +171,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035031557, y: -0.108597994}
-  m_Size: {x: 0.50955725, y: 0.8388543}
-  m_Direction: 0
+  m_Offset: {x: -0.06175995, y: -0.43448573}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38673592, y: 0.13969624}
+  m_EdgeRadius: 0

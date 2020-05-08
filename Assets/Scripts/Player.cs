@@ -11,13 +11,15 @@ public class Player : MonoBehaviour {
     [SerializeField] private int climbVelocity = 5;
 
     Rigidbody2D playerRigidBody;
-    Collider2D playerCollider;
+    CapsuleCollider2D playerBodyCollider;
+    BoxCollider2D playerFeetCollider;
     Animator playerAnimator;
     float intialPlayerGravity;
 
     void Start() {
         playerRigidBody = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        playerBodyCollider = GetComponent<CapsuleCollider2D>();
+        playerFeetCollider = GetComponent<BoxCollider2D>();
         playerAnimator = GetComponent<Animator>();
         intialPlayerGravity = playerRigidBody.gravityScale;
     }
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour {
     }
 
     private void Climb() {
-        bool playerIsTouchingLadder = playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
+        bool playerIsTouchingLadder = playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
 
         if (playerIsTouchingLadder) {
             playerRigidBody.gravityScale = 0;
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour {
         }
     }
     private bool PlayerIsGrounded() {
-        return playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        return playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
 
     private bool PlayerIsMovingHorizontally() {
