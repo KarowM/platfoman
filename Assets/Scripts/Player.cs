@@ -13,11 +13,13 @@ public class Player : MonoBehaviour {
     Rigidbody2D playerRigidBody;
     Collider2D playerCollider;
     Animator playerAnimator;
+    float intialPlayerGravity;
 
     void Start() {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponent<Animator>();
+        intialPlayerGravity = playerRigidBody.gravityScale;
     }
 
     void Update() {
@@ -25,17 +27,19 @@ public class Player : MonoBehaviour {
         FlipPlayerHorizontally();
         Jump();
         Climb();
-        print(playerRigidBody.velocity);
-
     }
 
     private void Climb() {
         bool playerIsTouchingLadder = playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
 
         if (playerIsTouchingLadder) {
+            playerRigidBody.gravityScale = 0;
             float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, controlThrow * climbVelocity);
             playerAnimator.SetBool("Climbing", PlayerIsMovingVertically());
+        } else {
+            playerRigidBody.gravityScale = intialPlayerGravity;
+            playerAnimator.SetBool("Climbing", false);
         }
     }
 
