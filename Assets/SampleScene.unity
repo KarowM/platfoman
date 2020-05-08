@@ -142,6 +142,12 @@ MonoBehaviour:
   playerVelocity: 4
   jumpVelocity: 16
   climbVelocity: 5
+--- !u!95 &209206017 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8176631176010202385, guid: fa914caba3406944fb38466fdf179fca,
+    type: 3}
+  m_PrefabInstance: {fileID: 8176631176203651055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &209206018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8176631176010202384, guid: fa914caba3406944fb38466fdf179fca,
@@ -13484,6 +13490,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1709850286, guid: 7eca9d618e357e74a9ffa817b9725963, type: 3}
+      propertyPath: m_ChildCameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709850286, guid: 7eca9d618e357e74a9ffa817b9725963, type: 3}
+      propertyPath: m_AnimatedTarget
+      value: 
+      objectReference: {fileID: 209206017}
+    - target: {fileID: 1918343098, guid: 7eca9d618e357e74a9ffa817b9725963, type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 1368979963}
+    - target: {fileID: 1918343099, guid: 7eca9d618e357e74a9ffa817b9725963, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 209206018}
     - target: {fileID: 413506193796033173, guid: 7eca9d618e357e74a9ffa817b9725963,
         type: 3}
       propertyPath: m_Name
