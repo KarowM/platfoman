@@ -12,11 +12,8 @@ public class Enemy : MonoBehaviour {
         enemyRigidbody.velocity = new Vector2(walkSpeed, 0);
     }
 
-    void Update() {
-        FlipPlayerHorizontally();
-    }
-
-    private void FlipPlayerHorizontally() {
+    private void OnTriggerExit2D(Collider2D collision) {
+        enemyRigidbody.velocity = new Vector2(-enemyRigidbody.velocity.x, 0);
         transform.localScale = new Vector2(Mathf.Sign(enemyRigidbody.velocity.x), 1);
     }
 }
