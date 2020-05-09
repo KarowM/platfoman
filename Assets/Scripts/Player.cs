@@ -16,19 +16,33 @@ public class Player : MonoBehaviour {
     Animator playerAnimator;
     float intialPlayerGravity;
 
+    bool isAlive;
+
     void Start() {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerBodyCollider = GetComponent<CapsuleCollider2D>();
         playerFeetCollider = GetComponent<BoxCollider2D>();
         playerAnimator = GetComponent<Animator>();
         intialPlayerGravity = playerRigidBody.gravityScale;
+        isAlive = true;
     }
 
     void Update() {
-        Run();
-        FlipPlayerHorizontally();
-        Jump();
-        Climb();
+        if (isAlive) {
+            Run();
+            FlipPlayerHorizontally();
+            Jump();
+            Climb();
+            CheckPlayerDeath();
+        }
+    }
+
+    private void CheckPlayerDeath() {
+        if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy"))) {
+            playerAnimator.SetTrigger("Death");
+            playerRigidBody.velocity = new Vector2(-5, 10);
+            isAlive = false;
+        }
     }
 
     private void Climb() {
