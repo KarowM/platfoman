@@ -42,7 +42,15 @@ public class Player : MonoBehaviour {
             playerAnimator.SetTrigger("Death");
             playerRigidBody.velocity = new Vector2(-5, 10);
             isAlive = false;
+
+            StartCoroutine(KillPlayer());
         }
+    }
+
+    private IEnumerator KillPlayer() {
+        yield return new WaitForSeconds(1.5f);
+
+        FindObjectOfType<Session>().PlayerDeath();
     }
 
     private void Climb() {
