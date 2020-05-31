@@ -142,3 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34280cd69b18545488c40245802705e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinPickup: {fileID: 8300000, guid: 0a649e232f5b5452f80b764318169f91, type: 3}
