@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private int playerVelocity = 4;
     [SerializeField] private int jumpVelocity = 16;
     [SerializeField] private int climbVelocity = 5;
+    [SerializeField] AudioClip deathClip;
 
     Rigidbody2D playerRigidBody;
     CapsuleCollider2D playerBodyCollider;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour {
 
     private void CheckPlayerDeath() {
         if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazard"))) {
+            AudioSource.PlayClipAtPoint(deathClip, Camera.main.transform.position);
             playerAnimator.SetTrigger("Death");
             playerRigidBody.velocity = new Vector2(-5, 10);
             isAlive = false;
